@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 245 158 11; /* amber-500 */
+    --color-primary-hover: 217 119 6; /* amber-600 */
+  }
+
+  /* Light mode */
+  :root {
+    color-scheme: light;
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color: rgba(255, 255, 255, 0.87);
+      background-color: #242424;
+    }
+  }
+
+  body {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    min-height: 100vh;
+    margin: 0;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply text-4xl font-bold leading-tight;
+  }
+
+  a {
+    @apply font-medium text-blue-600 hover:text-blue-500 transition-colors;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply font-medium rounded-lg transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-amber-500 hover:bg-amber-600 text-white py-2 px-4;
+  }
+
+  .input-field {
+    @apply w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg 
+           focus:ring-2 focus:ring-amber-500 focus:border-transparent 
+           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 
+           transition-colors;
+  }
+
+  /* If you need to override Tailwind's button styles */
+  button {
+    @apply rounded-lg border border-transparent px-4 py-2 font-medium 
+           bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 
+           transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 
+           focus:ring-offset-2 dark:focus:ring-offset-gray-800;
+  }
+}
